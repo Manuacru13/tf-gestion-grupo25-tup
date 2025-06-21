@@ -5,6 +5,6 @@ using namespace std;
 
 int main()
 {
-    opcionMenu();
+   menuPrincipal();
     return 0;
 }

@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1750165887 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\main.cpp
+1750452502 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\main.cpp
 	<iostream>
 	"menu.h"
 
-1750165584 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.h
+1750460225 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.h
 
 1750165901 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\interfaz.cpp
 	<iostream>
@@ -25,4 +25,21 @@
 	<sys/ioctl.h>
 	<sys/types.h>
 	<sys/time.h>
+
+1750465357 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.cpp
+	<iostream>
+	"menu.h"
+	"structs.h"
+	"carga.h"
+
+1750460840 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.cpp
+	<iostream>
+	<cstring>
+	"carga.h"
+	"structs.h"
+
+1750457533 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\structs.h
+
+1750465372 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
+	"structs.h"
 

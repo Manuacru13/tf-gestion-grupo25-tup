@@ -1,59 +1,47 @@
+//#include "reportes.h"
 #include <iostream>
-#include <cstdlib>
-#include "rlutil.h"
-#include "interfaz.h"
-
+#include "menu.h"
+#include "structs.h"
+#include "carga.h"
 
 using namespace std;
 
+void menuPrincipal()
+{
 
-void opcionMenu(){
-    int y = 0, opcion = 1;
+    //lote carga
+    Marca marcas[2];
+    int opcion;
+    do
+    {
+        cout << "\n===== MENU PRINCIPAL =====" << endl;
+         cout <<endl;
+        cout << "1. Cargar marcas" << endl;
+        cout << "2. Cargar productos" << endl;
+        cout << "3. Cargar formas de pago" << endl;
+        cout << "4. Cargar ventas" << endl;
+        cout << "0. Salir" << endl;
+        cout <<endl;
+        cout << "SELECCIONE UNA OPCION: ";
+        cin >> opcion;
 
-    rlutil::hidecursor();
-    rlutil::saveDefaultColor();
-
-    do{
-        rlutil::setBackgroundColor(rlutil::BLACK);
-        rlutil::setColor(rlutil::WHITE);
-        rlutil::hidecursor();
-
-        seleccionar("OPCION 1", 50, 16, y == 0);
-        seleccionar("OPCION 2", 50, 17, y == 1);
-        seleccionar("OPCION 3", 50, 18, y == 2);
-        seleccionar("SALIR DEL PROGRAMA", 50, 19, y == 3);
-
-        switch(rlutil::getkey()){
-            case rlutil::KEY_UP:
-                y--;
-                if(y<0) y=0;
-                break;
-
-            case rlutil::KEY_DOWN:
-                y++;
-                if(y>3) y=3;
-                break;
-
-            case rlutil::KEY_ENTER:
-
-                switch(y){
-                    case 0:
-                        rlutil::cls();
-                        break;
-                    case 1:
-                        rlutil::cls();
-
-                        break;
-                    case 2:
-                        rlutil::cls();
-                        break;
-                    case 3:
-                        opcion = 0;
-                        rlutil::cls();
-                        cout<<"GRACIAS POR USAR EL PROGRAMA :-)"<<endl;
-                        break;
-            }
+        switch (opcion)
+        {
+        case 1:
+            cargarMarcas(marcas);
+            break;
+        case 2:
+            // mostrarReportes();
+            break;
+        case 0:
+            cout << "Gracias por usar el sistema.\n";
+            break;
+        default:
+            cout << "Opcion no valida.\n";
+            system("pause");
+            system("cls");
         }
-    }while(opcion!=0);
+    }
+    while (opcion != 0);
 }
 

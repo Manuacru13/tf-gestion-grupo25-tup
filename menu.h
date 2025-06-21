@@ -1,3 +1,6 @@
-#pragma once
+#ifndef MENU_H_INCLUDED
+#define MENU_H_INCLUDED
 
-void opcionMenu();
+void menuPrincipal();
+
+#endif // MENU_INCLUDED
