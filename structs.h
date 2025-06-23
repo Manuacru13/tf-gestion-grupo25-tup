@@ -16,5 +16,11 @@ struct Producto {
     int codigoMarca;         // Debe coincidir con una marca cargada
 };
 
+struct FormaPago {
+    char codigo[3];      // EF, MP, TR, TC, CT
+    char nombre[30];     // Efectivo, etc.
+    int porcentaje;      // Positivo (interés), negativo (descuento)
+};
+
 
 #endif // STRUCTS_H_INCLUDED

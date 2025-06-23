@@ -153,3 +153,88 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
     system("pause");
     system("cls");
 }
+
+void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFormas) {
+    if (formasCargadas) {
+        cout << "Ya se cargaron las formas de pago.\n";
+        system("pause");
+        system("cls");
+        return;
+    }
+
+    const char* codigosValidos[] = {"EF", "MP", "TR", "TC", "CT"};
+    bool codigoUsado[5] = {false};
+
+    cout << "\n--- CARGA DE FORMAS DE PAGO ---\n";
+
+    while (cantidadFormas < 5) {
+        FormaPago f;
+        char codigoIngresado[3];
+
+        cout << "\nForma de pago #" <<(cantidadFormas + 1) << endl;
+        cout << "Codigo (EF, MP, TR, TC, CT): ";
+        cin >> codigoIngresado;
+
+        bool valido = false;
+        for (int j = 0; j < 5; j++) {
+            if (strcmp(codigoIngresado, codigosValidos[j]) == 0 && !codigoUsado[j]) {
+                strcpy(f.codigo, codigoIngresado);
+                codigoUsado[j] = true;
+                valido = true;
+                break;
+            }
+        }
+
+        if (!valido) {
+            cout << "Codigo invalido o repetido. Solo se permite uno de: EF, MP, TR, TC, CT.\n";
+            cantidadFormas = 0;
+            formasCargadas = false;
+            system("pause");
+            system("cls");
+            return;
+        }
+
+        cout << "Nombre de la forma de pago: ";
+        cin.ignore();
+        cin.getline(f.nombre, 30);
+
+        if (strlen(f.nombre) == 0) {
+            cout << "El nombre no puede estar vacío.\n";
+            cantidadFormas = 0;
+            formasCargadas = false;
+            system("pause");
+            system("cls");
+            return;
+        }
+
+       cout << "Porcentaje de descuento/interes (negativo = descuento, positivo = interes): ";
+        cin >> f.porcentaje;
+
+        if (f.porcentaje == 0 || f.porcentaje < -100 || f.porcentaje > 100) {
+            cout << "Porcentaje invalido. Debe estar entre -100 y 100 y no puede ser 0.\n";
+            cantidadFormas = 0;
+            formasCargadas = false;
+            system("pause");
+            system("cls");
+            return;
+        }
+        formas[cantidadFormas] = f;
+        cantidadFormas++;
+
+         if (cantidadFormas < 5) {
+            char opcion;
+            cout << "¿Deseas cargar otra forma de pago? (S/N): ";
+            cin >> opcion;
+
+            if (toupper(opcion) != 'S') {
+                break;
+            }
+        }
+    }
+
+    formasCargadas = true;
+    cout << "\n Formas de pago cargadas correctamente.\n";
+    system("pause");
+    system("cls");
+}
+

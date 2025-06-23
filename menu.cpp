@@ -18,6 +18,10 @@ void menuPrincipal()
     int cantidadProductos = 0;
     bool productosCargados = false;
 
+    FormaPago formasPago[5];
+    int cantidadFormas = 0;
+    bool formasCargadas = false;
+
     int opcion;
 
     do {
@@ -37,11 +41,14 @@ void menuPrincipal()
         case 2:
             cargarProductos(productos, cantidadProductos, productosCargados, marcas, cantidadMarcas);
             break;
+        case 3:
+            cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
+            break;
         case 0:
-            cout << "\nGracias por usar el sistema.\n";
+            cout << "\n Gracias por usar el sistema.\n";
             break;
         default:
-            cout << "\n❌ Opcion no valida.\n";
+            cout << "\n Opcion no valida.\n";
             system("pause");
             system("cls");
         }
