@@ -1,4 +1,3 @@
-//#include "reportes.h"
 #include <iostream>
 #include "menu.h"
 #include "structs.h"
@@ -6,42 +5,47 @@
 
 using namespace std;
 
+
 void menuPrincipal()
 {
+    // Lote de marcas
+    Marca marcas[10];
+    int cantidadMarcas = 0;
+    bool marcasCargadas = false;
 
-    //lote carga
-    Marca marcas[2];
+    // Lote de productos
+    Producto productos[20];
+    int cantidadProductos = 0;
+    bool productosCargados = false;
+
     int opcion;
-    do
-    {
-        cout << "\n===== MENU PRINCIPAL =====" << endl;
-         cout <<endl;
+
+    do {
+        cout << "\n===== MENU PRINCIPAL =====\n" << endl;
         cout << "1. Cargar marcas" << endl;
         cout << "2. Cargar productos" << endl;
         cout << "3. Cargar formas de pago" << endl;
         cout << "4. Cargar ventas" << endl;
-        cout << "0. Salir" << endl;
-        cout <<endl;
+        cout << "0. Salir\n" << endl;
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
 
-        switch (opcion)
-        {
+        switch (opcion) {
         case 1:
-            cargarMarcas(marcas);
+            cargarMarcas(marcas, cantidadMarcas, marcasCargadas);
             break;
         case 2:
-            // mostrarReportes();
+            cargarProductos(productos, cantidadProductos, productosCargados, marcas, cantidadMarcas);
             break;
         case 0:
-            cout << "Gracias por usar el sistema.\n";
+            cout << "\nGracias por usar el sistema.\n";
             break;
         default:
-            cout << "Opcion no valida.\n";
+            cout << "\n❌ Opcion no valida.\n";
             system("pause");
             system("cls");
         }
-    }
-    while (opcion != 0);
+
+    } while (opcion != 0);
 }
 
