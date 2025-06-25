@@ -18,13 +18,14 @@ void menuPrincipal()
     int cantidadProductos = 0;
     bool productosCargados = false;
 
-    FormaPago formasPago[5];
-    int cantidadFormas = 0;
-    bool formasCargadas = false;
+    FormaPago formas[5];
+int cantidadFormas = 0;
+bool formasCargadas = false;
 
     int opcion;
 
-    do {
+    do
+    {
         cout << "\n===== MENU PRINCIPAL =====\n" << endl;
         cout << "1. Cargar marcas" << endl;
         cout << "2. Cargar productos" << endl;
@@ -34,7 +35,8 @@ void menuPrincipal()
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
 
-        switch (opcion) {
+        switch (opcion)
+        {
         case 1:
             cargarMarcas(marcas, cantidadMarcas, marcasCargadas);
             break;
@@ -42,17 +44,22 @@ void menuPrincipal()
             cargarProductos(productos, cantidadProductos, productosCargados, marcas, cantidadMarcas);
             break;
         case 3:
-            cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
+            cargarFormasPago(formas, formasCargadas, cantidadFormas);
             break;
+        case 4:
+            cargarVentas(productos, cantidadProductos, formas, cantidadFormas);
+                break;
+
         case 0:
-            cout << "\n Gracias por usar el sistema.\n";
+            cout << "\nSaliendo del programa...\n";
             break;
         default:
-            cout << "\n Opcion no valida.\n";
+            cout << "Opcion invalida.\n";
             system("pause");
             system("cls");
         }
 
-    } while (opcion != 0);
+    }
+    while (opcion != 0);
 }
 

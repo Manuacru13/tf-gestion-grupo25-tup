@@ -26,20 +26,20 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1750657043 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.cpp
+1750687464 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.cpp
 	<iostream>
 	"menu.h"
 	"structs.h"
 	"carga.h"
 
-1750679445 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.cpp
+1750815152 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
 	"carga.h"
 
-1750657043 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\structs.h
+1750686490 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\structs.h
 
-1750657044 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
+1750687415 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
 	"structs.h"
 

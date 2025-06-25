@@ -33,7 +33,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado) {
         cin.getline(nombre, 30);
 
         if (strlen(nombre) == 0) {
-            cout << "Nombre no puede estar vac�o.\n";
+            cout << "Nombre no puede estar vacío.\n";
             cantidad = 0;
             cargado = false;
             system("pause");
@@ -88,7 +88,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         cin.ignore();
         cin.getline(p.nombre, 30);
         if (strlen(p.nombre) == 0) {
-            cout << "El nombre no puede estar vac�o.\n";
+            cout << "El nombre no puede estar vacío.\n";
             cantidadProductos = 0;
             system("pause");
             system("cls");
@@ -199,7 +199,7 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
         cin.getline(f.nombre, 30);
 
         if (strlen(f.nombre) == 0) {
-            cout << "El nombre no puede estar vac�o.\n";
+            cout << "El nombre no puede estar vacío.\n";
             cantidadFormas = 0;
             formasCargadas = false;
             system("pause");
@@ -223,7 +223,7 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
 
          if (cantidadFormas < 5) {
             char opcion;
-            cout << "�Deseas cargar otra forma de pago? (S/N): ";
+            cout << "¿Deseas cargar otra forma de pago? (S/N): ";
             cin >> opcion;
 
             if (toupper(opcion) != 'S') {
@@ -238,3 +238,76 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
     system("cls");
 }
 
+void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas) {
+    cout << "\n--- CARGA DE VENTAS ---\n";
+
+    while (true) {
+        int nroCompra;
+        cout << "\nNro de compra (0 para finalizar): ";
+        cin >> nroCompra;
+
+        if (nroCompra == 0) break;
+
+        int codigoProducto;
+        cout << "Codigo de producto: ";
+        cin >> codigoProducto;
+
+        bool productoExiste = false;
+        for (int i = 0; i < cantidadProductos; i++) {
+            if (productos[i].codigoProducto == codigoProducto) {
+                productoExiste = true;
+                break;
+            }
+        }
+        if (!productoExiste) {
+            cout << "Producto no encontrado.\n";
+            continue;
+        }
+
+        char formaPago[3];
+        cout << "Forma de pago (EF, MP, TR, TC, CT): ";
+        cin >> formaPago;
+
+        bool formaValida = false;
+        for (int i = 0; i < cantidadFormas; i++) {
+            if (strcmp(formas[i].codigo, formaPago) == 0) {
+                formaValida = true;
+                break;
+            }
+        }
+        if (!formaValida) {
+            cout << "Forma de pago inválida.\n";
+            continue;
+        }
+
+        int cantidadVendida;
+        cout << "Cantidad vendida: ";
+        cin >> cantidadVendida;
+        if (cantidadVendida <= 0) {
+            cout << "La cantidad debe ser mayor a 0.\n";
+            continue;
+        }
+
+        int codigoCliente;
+        cout << "Código de cliente (1 a 50): ";
+        cin >> codigoCliente;
+        if (codigoCliente < 1 || codigoCliente > 50) {
+            cout << "Codigo de cliente invalido.\n";
+            continue;
+        }
+
+        int diaVenta;
+        cout << "Día de la venta (1 a 30): ";
+        cin >> diaVenta;
+        if (diaVenta < 1 || diaVenta > 30) {
+            cout << "Día invalido.\n";
+            continue;
+        }
+
+        cout << "Venta registrada correctamente.\n";
+    }
+
+    cout << "\n Carga de ventas finalizada.\n";
+    system("pause");
+    system("cls");
+}
