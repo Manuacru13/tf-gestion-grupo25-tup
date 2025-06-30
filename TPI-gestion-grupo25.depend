@@ -43,7 +43,7 @@
 1750657044 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
 	"structs.h"
 
-1750791311 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
+1750886905 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
@@ -52,7 +52,7 @@
 1750734763 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
 	<string>
 
-1750791354 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
+1750886973 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
 	"structs.h"
 
 1750787225 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\main.cpp
@@ -61,33 +61,67 @@
 
 1750736069 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.h
 
-1750791478 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
+1750886101 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
 	<iostream>
 	"menu.h"
 	"structs.h"
 	"carga.h"
 
-1750823491 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.cpp
+1750887004 source:c:\users\caro\desktop\tp-funcionesyvectoresutn-master\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
 	"carga.h"
 
-1750823491 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\structs.h
+1750887004 c:\users\caro\desktop\tp-funcionesyvectoresutn-master\structs.h
 	<string>
 
-1750823491 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.h
+1750887004 c:\users\caro\desktop\tp-funcionesyvectoresutn-master\carga.h
 	"structs.h"
 
-1750823491 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\main.cpp
+1750887004 source:c:\users\caro\desktop\tp-funcionesyvectoresutn-master\main.cpp
 	<iostream>
 	"menu.h"
 
-1750823491 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menu.h
+1750887004 c:\users\caro\desktop\tp-funcionesyvectoresutn-master\menu.h
 
-1750823491 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menu.cpp
+1750896377 source:c:\users\caro\desktop\tp-funcionesyvectoresutn-master\menu.cpp
 	<iostream>
 	"menu.h"
 	"structs.h"
 	"carga.h"
+
+1751294536 source:c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\carga.cpp
+	<iostream>
+	<cstring>
+	<limits>
+	"structs.h"
+	"carga.h"
+
+1751281742 c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\structs.h
+	<string>
+
+1750887004 c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\carga.h
+	"structs.h"
+
+1750887004 source:c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\main.cpp
+	<iostream>
+	"menu.h"
+
+1750887004 c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\menu.h
+
+1751282687 source:c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\menu.cpp
+	<iostream>
+	"menu.h"
+	"structs.h"
+	"carga.h"
+	"reportes.h"
+
+1751281743 c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\reportes.h
+	"structs.h"
+
+1751281743 source:c:\users\caro\desktop\tpi-de-gestion-grupo25-tup\reportes.cpp
+	<iostream>
+	"structs.h"
+	"reportes.h"
 

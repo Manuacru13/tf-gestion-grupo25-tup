@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "structs.h"
 #include "carga.h"
+#include "reportes.h"
 
 using namespace std;
 
@@ -24,11 +25,13 @@ void menuPrincipal()
     bool formasCargadas = false;
 
     //LOTE DE VENTAS
+    Venta ventas[100];
     int cantidadVentas = 0;
 
     int opcion;
 
-    do {
+    do
+    {
         cout << "\n===== MENU PRINCIPAL =====\n" << endl;
         cout << "1. Cargar marcas" << endl;
         cout << "2. Cargar productos" << endl;
@@ -39,7 +42,8 @@ void menuPrincipal()
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
 
-        switch (opcion) {
+        switch (opcion)
+        {
         case 1:
             cargarMarcas(marcas, cantidadMarcas, marcasCargadas);
             break;
@@ -47,15 +51,16 @@ void menuPrincipal()
             cargarProductos(productos, cantidadProductos, productosCargados, marcas, cantidadMarcas);
             break;
         case 3:
-            cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
+            cargarFormasPago(formasPago, formasCargadas, cantidadFormas, marcas, cantidadMarcas);
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
-                   marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
+                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
             break;
         case 5:
-            reporte();
+            menuReportes(productos, cantidadProductos, ventas, cantidadVentas);
             break;
+
         case 0:
             cout << "\n Gracias por usar el sistema.\n";
             break;
@@ -65,52 +70,7 @@ void menuPrincipal()
             system("cls");
         }
 
-    } while (opcion != 0);
-}
-
-
-void reporte()
-{
-    int opcion;
-
-    do
-    {
-        cout << "\n===== REPORTES =====\n" << endl;
-        cout << "1. Reporte de recaudacion por producto" << endl;
-        cout << "2. Reporte de porcentaje de ventas por forma de pago" << endl;
-        cout << "3. Reporte de ventas por marca y forma de pago" << endl;
-        cout << "4. Reporte de productos sin ventas" << endl;
-        cout << "5. Top 10 clientes + sorteo de cupones" << endl;
-        cout << "0. Volver al menu principal\n" << endl;
-        cout << "SELECCIONE UNA OPCION: ";
-        cin >> opcion;
-
-        switch(opcion)
-        {
-
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 0:
-            cout << "Regresando al menu principal\n";
-            system("pause");
-            system("cls");
-            return;
-            break;
-        default: cout << "Opcion no valida\n";
-            system("pause");
-            system("cls");
-        }
-
     }
     while (opcion != 0);
-
-
 }
+

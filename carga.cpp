@@ -42,7 +42,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
 
     cout << "\n--- CARGA DE MARCAS ---\n";
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 10; i++)
     {
         int codigo;
         string nombre;
@@ -107,15 +107,21 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 
     cout << "\n--- CARGA DE PRODUCTOS ---\n";
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 20; i++)
     {
-        Producto p;
+        int codigoProducto;
+        string nombre;
+        float precioVenta;
+        float precioCompra;
+        int stock;
+        int codigoMarca;
 
         cout << "\nProducto #" << i + 1 << endl;
 
         cout << "Codigo de producto (3 digitos): ";
-        cin >> p.codigoProducto;
-        if (p.codigoProducto < 100 || p.codigoProducto > 999 || esConsecutivo(p.codigoProducto))
+        cin >>codigoProducto;
+
+        if (codigoProducto < 100 || codigoProducto > 999 || esConsecutivo(codigoProducto ))
         {
             cout << "Codigo invalido. Debe tener 3 digitos y no ser consecutivos (ej.123).\n";
             cantidadProductos = 0;
@@ -124,10 +130,13 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
             return;
         }
 
+
         cout << "Nombre del producto: ";
         cin.ignore();
-        getline(cin, p.nombre);
-        if (p.nombre.empty())
+        getline(cin, nombre);
+
+
+        if (nombre.empty())
         {
             cout << "El nombre no puede estar vacío.\n";
             cantidadProductos = 0;
@@ -137,8 +146,10 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         }
 
         cout << "Precio de venta: ";
-        cin >> p.precioVenta;
-        if (p.precioVenta <= 0)
+        cin.ignore();
+        cin >> precioVenta;
+
+        if (precioVenta <= 0)
         {
             cout << "El precio debe ser mayor a 0.\n";
             cantidadProductos = 0;
@@ -148,8 +159,8 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         }
 
         cout << "Precio de compra: ";
-        cin >> p.precioCompra;
-        if (p.precioCompra <= 0)
+        cin >> precioCompra;
+        if (precioCompra <= 0)
         {
             cout << "El precio debe ser mayor a 0.\n";
             cantidadProductos = 0;
@@ -159,8 +170,8 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         }
 
         cout << "Stock disponible: ";
-        cin >> p.stock;
-        if (p.stock <= 0)
+        cin >> stock;
+        if (stock <= 0)
         {
             cout << "El stock debe ser mayor a 0.\n";
             cantidadProductos = 0;
@@ -170,12 +181,12 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         }
 
         cout << "Codigo de marca: ";
-        cin >> p.codigoMarca;
+        cin >> codigoMarca;
 
         bool marcaExiste = false;
         for (int j = 0; j < cantidadMarcas; j++)
         {
-            if (p.codigoMarca == marcas[j].codigo)
+            if (codigoMarca == marcas[j].codigo)
             {
                 marcaExiste = true;
                 break;
@@ -186,22 +197,38 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         {
             cout << "Codigo de marca no encontrado. No se puede continuar.\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
 
-        productos[i] = p;
+        productos[i].codigoProducto = codigoProducto;
+        productos[i].nombre = nombre;
+        productos[i].precioVenta = precioVenta;
+        productos[i].precioCompra = precioCompra;
+        productos[i].stock = stock;
+        productos[i].codigoMarca = codigoMarca;
         cantidadProductos++;
     }
 
     productosCargados = true;
     cout << "\nProductos cargados correctamente.\n";
-    system("pause");
-    system("cls");
+    limpiarPantalla();
 }
 
-void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas)
+
+void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas, Marca marcas[], int cantidadMarcas)
 {
+
+    if (!cantidadMarcas)
+    {
+        cout << "No se han cargado marcas. Debe cargar el lote de marcas antes.\n";
+        limpiarPantalla();
+        return;
+    }
+
+
+
     if (formasCargadas)
     {
         cout << "Ya se cargaron las formas de pago.\n";
@@ -415,7 +442,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         // ACTUALIZO EL STOCK
         productos[indiceProducto].stock -= venta.cantidadVendida;
 
-        // Buscar el porcentaje de la forma de pago
+
         float porcentajeFormaPago = 0;
         string nombreFormaPago = "";
         for (int i = 0; i < cantidadFormas; i++)
@@ -453,7 +480,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
         if (porcentajeFormaPago < 0)
         {
-            cout << "Descuento " << nombreFormaPago << ": " << abs(porcentajeFormaPago) << "%" << endl;
+            cout << "Descuento " << nombreFormaPago << ": " << (porcentajeFormaPago) << "%" << endl;
             cout << "Descuento aplicado: $" << (precioBase - precioFinal) << endl;
         }
         else if (porcentajeFormaPago > 0)
@@ -480,4 +507,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     cout << "Lote de ventas cargado exitosamente.\n";
     limpiarPantalla();
 }
+
+
+
 
