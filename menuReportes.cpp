@@ -1,6 +1,6 @@
 #include <iostream>
 #include "structs.h"
-#include "reporteRecaudacion.h"
+#include "menuReportes.h"
 
 using namespace std;
 
