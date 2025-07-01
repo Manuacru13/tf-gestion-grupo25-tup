@@ -159,6 +159,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         }
 
         cout << "Precio de compra: ";
+        cin.ignore();
         cin >> precioCompra;
         if (precioCompra <= 0)
         {
@@ -320,7 +321,7 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
 
 
 void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas,
-                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas)
+                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta ventas[])
 {
 
     // VERIFICAMOS QUE TODOS LOS PUNTOS ANTERIORES ESTEN CARGADOS
@@ -354,17 +355,17 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             return;
         }
 
-        Venta venta;
-        venta.numeroDeCompra = numeroCompra;
+
+        ventas[cantidadVentas].numeroDeCompra = numeroCompra;
 
         cout << "Codigo de producto: ";
-        cin >> venta.codigoProducto;
+        cin >> ventas[cantidadVentas].codigoProducto;
 
         bool productoExiste = false;
         int indiceProducto = -1;
         for (int i = 0; i < cantidadProductos; i++)
         {
-            if (productos[i].codigoProducto == venta.codigoProducto)
+            if (productos[i].codigoProducto == ventas[cantidadVentas].codigoProducto)
             {
                 productoExiste = true;
                 indiceProducto = i;
@@ -380,13 +381,13 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Forma de pago: ";
-        cin >> venta.formaDePago;
+        cin >> ventas[cantidadVentas].formaDePago;
 
 
         bool formaPagoExiste = false;
         for (int i = 0; i < cantidadFormas; i++)
         {
-            if (formas[i].codigo == venta.formaDePago)
+            if (formas[i].codigo == ventas[cantidadVentas].formaDePago)
             {
                 formaPagoExiste = true;
                 break;
@@ -401,18 +402,18 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Cantidad vendida: ";
-        cin >> venta.cantidadVendida;
-        if (venta.cantidadVendida <= 0)
+        cin >> ventas[cantidadVentas].cantidadVendida;
+        if (ventas[cantidadVentas].cantidadVendida <= 0)
         {
             cout << "Error: Cantidad vendida invalida. Carga interrumpida.\n";
             limpiarPantalla();
             return;
         }
 
-        if (productos[indiceProducto].stock < venta.cantidadVendida)
+        if (productos[indiceProducto].stock < ventas[cantidadVentas].cantidadVendida)
         {
             cout << "Error: Stock insuficiente. Stock disponible: " << productos[indiceProducto].stock
-                 << ", cantidad solicitada: " << venta.cantidadVendida << ". Carga interrumpida.\n";
+                 << ", cantidad solicitada: " << ventas[cantidadVentas].cantidadVendida << ". Carga interrumpida.\n";
             limpiarPantalla();
             return;
         }
@@ -420,8 +421,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
 
         cout << "Codigo de cliente (1-50): ";
-        cin >> venta.codigoDeCliente;
-        if (venta.codigoDeCliente < 1 || venta.codigoDeCliente > 50)
+        cin >> ventas[cantidadVentas].codigoDeCliente;
+        if (ventas[cantidadVentas].codigoDeCliente < 1 || ventas[cantidadVentas].codigoDeCliente > 50)
         {
             cout << "Error: Codigo de cliente invalido. Debe estar entre 1 y 50. Carga interrumpida.\n";
             limpiarPantalla();
@@ -429,8 +430,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Dia de la venta (1-30): ";
-        cin >> venta.diaDeLaVenta;
-        if (venta.diaDeLaVenta < 1 || venta.diaDeLaVenta > 30)
+        cin >> ventas[cantidadVentas].diaDeLaVenta;
+        if (ventas[cantidadVentas].diaDeLaVenta < 1 || ventas[cantidadVentas].diaDeLaVenta > 30)
         {
             cout << "Error: Dia invalido. Debe estar entre 1 y 30. Carga interrumpida.\n";
             limpiarPantalla();
@@ -440,14 +441,14 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
 
         // ACTUALIZO EL STOCK
-        productos[indiceProducto].stock -= venta.cantidadVendida;
+        productos[indiceProducto].stock -= ventas[cantidadVentas].cantidadVendida;
 
 
         float porcentajeFormaPago = 0;
         string nombreFormaPago = "";
         for (int i = 0; i < cantidadFormas; i++)
         {
-            if (formas[i].codigo == venta.formaDePago)
+            if (formas[i].codigo == ventas[cantidadVentas].formaDePago)
             {
                 porcentajeFormaPago = formas[i].porcentaje;
                 nombreFormaPago = formas[i].nombre;
@@ -455,7 +456,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             }
         }
 
-        float precioBase = productos[indiceProducto].precioVenta * venta.cantidadVendida;
+        float precioBase = productos[indiceProducto].precioVenta * ventas[cantidadVentas].cantidadVendida;
         float precioFinal;
 
         if (porcentajeFormaPago < 0)
@@ -472,8 +473,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
         cout << "\n--- VENTA PROCESADA ---\n";
         cout << "Producto: " << productos[indiceProducto].nombre << endl;
-        cout << "Cantidad vendida: " << venta.cantidadVendida << endl;
-        cout << "Forma de pago: " << venta.formaDePago << " (" << nombreFormaPago << ")" << endl;
+        cout << "Cantidad vendida: " << ventas[cantidadVentas].cantidadVendida << endl;
+        cout << "Forma de pago: " << ventas[cantidadVentas].formaDePago << " (" << nombreFormaPago << ")" << endl;
         cout << "Stock restante: " << productos[indiceProducto].stock << endl;
         cout << "Precio unitario: $" << productos[indiceProducto].precioVenta << endl;
         cout << "Subtotal: $" << precioBase << endl;

@@ -125,7 +125,7 @@
 	"structs.h"
 	"reportes.h"
 
-1751294677 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.cpp
+1751343683 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
@@ -134,7 +134,7 @@
 1751281742 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\structs.h
 	<string>
 
-1750887004 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.h
+1751340725 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\carga.h
 	"structs.h"
 
 1750887004 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\main.cpp
@@ -143,19 +143,22 @@
 
 1750887004 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menu.h
 
-1751282687 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menu.cpp
+1751341573 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menu.cpp
 	<iostream>
 	"menu.h"
 	"structs.h"
 	"carga.h"
-	"reportes.h"
+	"menuReportes.h"
 
-1750859536 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menureportes.cpp
+1751335956 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menureportes.cpp
 	<iostream>
 	"structs.h"
-	"reporteRecaudacion.h"
+	"menuReportes.h"
 
 1750859535 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\reporterecaudacion.cpp
 	<iostream>
+	"structs.h"
+
+1750861435 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tp-gestion-grupo25\menureportes.h
 	"structs.h"
 

@@ -2,7 +2,7 @@
 #include "menu.h"
 #include "structs.h"
 #include "carga.h"
-#include "reportes.h"
+#include "menuReportes.h"
 
 using namespace std;
 
@@ -55,7 +55,7 @@ void menuPrincipal()
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
-                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
+                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas, ventas);
             break;
         case 5:
             menuReportes(productos, cantidadProductos, ventas, cantidadVentas);
